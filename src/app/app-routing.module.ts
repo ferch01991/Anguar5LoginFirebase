@@ -8,11 +8,13 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
-  {path: 'privado', component: PrivadoPageComponent},
+  {path: 'privado', component: PrivadoPageComponent, canActivate: [AuthGuard]},
   // Cualquier otra ruta que no este registrada
   {path: '**', component: NotFoundPageComponent},
 ];
