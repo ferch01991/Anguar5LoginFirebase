@@ -11,6 +11,8 @@ export class NavbarComponent implements OnInit {
   public nameUser: string;
   public emailUser: string;
 
+  public fotoUser: string;
+
   constructor( public authService: AuthService) { }
 
   ngOnInit() {
@@ -19,6 +21,7 @@ export class NavbarComponent implements OnInit {
         this.isLogin = true;
         this.nameUser = auth.displayName;
         this.emailUser = auth.email;
+        this.fotoUser = auth.photoURL;
       }else{
         this.isLogin=false;
       }
